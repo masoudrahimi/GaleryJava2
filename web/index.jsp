@@ -33,8 +33,8 @@
 
       <input type="button" value="login">
     </form>
-//link forget&register
-    <p><b><a href="forget.jsp" target="_blank">forget pasword</a></b></p>
+
+    <p><b><a href="forget.jsp" target="_blank">forgetpasword</a></b></p>
     <p><b><a href="register.jsp" target="_blank">Register</a></b></p>
 
 
@@ -43,7 +43,7 @@
 
   </body>
   <script src="../js/jquery-3.1.1.min.js"></script>
-  <!-- bxSlider Javascript file-->
+  <!-- bxSlider Javascript file -->
   <script src="../js/jquery.bxslider.min.js"></script>
   <script>
       $(document).ready(function(){
