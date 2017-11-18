@@ -10,21 +10,25 @@ public class User {
     private String userName;
     private String password;
     private int stateId;
-    private  int questionId;
-    private String answer;
+    private  int question1Id;
+    private  int question2Id;
+    private String answer1;
+    private String answer2;
 
     public User() {
     }
 
-    public User(int id, String name, String family, String userName, String password, int stateId, int questionId, String answer) {
+    public User(int id, String name, String family, String userName, String password, int stateId, int question1Id, int question2Id, String answer1, String answer2) {
         this.id = id;
         this.name = name;
         this.family = family;
         this.userName = userName;
         this.password = password;
         this.stateId = stateId;
-        this.questionId = questionId;
-        this.answer = answer;
+        this.question1Id = question1Id;
+        this.question2Id = question2Id;
+        this.answer1 = answer1;
+        this.answer2 = answer2;
     }
 
     public int getId() {
@@ -75,19 +79,35 @@ public class User {
         this.stateId = stateId;
     }
 
-    public int getQuestionId() {
-        return questionId;
+    public int getQuestion1Id() {
+        return question1Id;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setQuestion1Id(int question1Id) {
+        this.question1Id = question1Id;
     }
 
-    public String getAnswer() {
-        return answer;
+    public int getQuestion2Id() {
+        return question2Id;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setQuestion2Id(int question2Id) {
+        this.question2Id = question2Id;
+    }
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public void setAnswer1(String answer1) {
+        this.answer1 = answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
+
+    public void setAnswer2(String answer2) {
+        this.answer2 = answer2;
     }
 }
