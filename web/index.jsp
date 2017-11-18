@@ -43,7 +43,7 @@
 
   </body>
   <script src="../js/jquery-3.1.1.min.js"></script>
-  <!-- bxSlider Javascript file -->
+  <!-- bxSlider Javascript file-->
   <script src="../js/jquery.bxslider.min.js"></script>
   <script>
       $(document).ready(function(){
