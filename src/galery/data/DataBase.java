@@ -10,8 +10,8 @@ public class DataBase {
 
     public static String driver="com.mysql.jdbc.Driver";
     public static String connectionURL="jdbc:mysql://localhost:3306/galery";
-    public static String userName="java",password="123456";
-    public Connection connection;
+    public static String userNameDb="java",passwordDb="1364";
+    public static Connection connection;
 
     public DataBase() throws Exception
    {
@@ -30,9 +30,10 @@ private void connect() throws  Exception
     }
     catch (ClassNotFoundException e)
     {
-        throw  new Exception("Driver Not Found");
+        //throw  new Exception("Driver Not Found");
+        System.out.println("not found");
     }
-    connection = DriverManager.getConnection(connectionURL,userName,password);
+    connection = DriverManager.getConnection(connectionURL,userNameDb,passwordDb);
     System.out.println("Connected");
 }
 

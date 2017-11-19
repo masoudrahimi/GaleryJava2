@@ -7,30 +7,30 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <link href="../css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-  <ul class="bxslider">
+</head>
+<body>
+<ul class="bxslider">
     <li><img src="../images/Spring(35).jpg" /></li>
     <li><img src="../images/Sport(36).jpg" /></li>
     <li><img src="../images/sport(10).jpg" /></li>
     <li><img src="../images/Spring(37).jpg" /></li>
     <li><img src="../images/pic1.jpg" /></li>
-  </ul>
+</ul>
 
 
 
-  <div class="dd">
+<div class="dd">
     <form action="servletLogin.do" method="post">
-      <label for="usn">User Name</label>
-      <input type="text" id="usn" name="username" placeholder="Your  username..">
+        <label for="usn">User Name</label>
+        <input type="text" id="usn" name="username" placeholder="Your  username..">
 
-      <label for="pass">password</label>
-      <br/>
-      <input type="password" id="pass" name="password" placeholder="Your password..">
+        <label for="pass">password</label>
+        <br/>
+        <input type="password" id="pass" name="password" placeholder="Your password..">
 
-      <input type="button" onclick="confirm()" value="login">
+        <input type="submit" onclick="confirm()" value="login">
     </form>
 
     <p><b><a href="forget.jsp" target="_blank">forgetpasword</a></b></p>
@@ -38,25 +38,25 @@
 
 
 
-  </div>
+</div>
 
-  </body>
-  <script type="text/javascript" src="../js/main.js"></script>
-  <script src="../js/jquery-3.1.1.min.js"></script>
-  <!-- bxSlider Javascript file -->
-  <script src="../js/jquery.bxslider.min.js"></script>
-  <script>
-      $(document).ready(function(){
-          $('.bxslider').bxSlider({
-              mode: 'horizontal',
-              moveSlides: 1,
-              slideMargin: 0,
-              infiniteLoop: true,
-              slideWidth: 700,
-              minSlides: 1,
-              maxSlides: 1,
-              speed: 800,
-          });
-      });
-  </script>
+</body>
+<script type="text/javascript" src="../js/main.js"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="../js/jquery.bxslider.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.bxslider').bxSlider({
+            mode: 'horizontal',
+            moveSlides: 1,
+            slideMargin: 0,
+            infiniteLoop: true,
+            slideWidth: 700,
+            minSlides: 1,
+            maxSlides: 1,
+            speed: 800
+        });
+    });
+</script>
 </html>

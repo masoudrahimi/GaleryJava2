@@ -3,13 +3,16 @@ package galery.model;
 /**
  * Created by masaoud on 17/11/2017.
  */
+/**
+ * Created by masaoud on 17/11/2017.
+ */
 public class User {
     private int id;
     private String name;
     private String family;
     private String userName;
     private String password;
-    private int stateId;
+    private int statId;
     private  int question1Id;
     private  int question2Id;
     private String answer1;
@@ -18,13 +21,13 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String family, String userName, String password, int stateId, int question1Id, int question2Id, String answer1, String answer2) {
+    public User(int id, String name, String family, String userName, String password, int statId, int question1Id, int question2Id, String answer1, String answer2) {
         this.id = id;
         this.name = name;
         this.family = family;
         this.userName = userName;
         this.password = password;
-        this.stateId = stateId;
+        this.statId = statId;
         this.question1Id = question1Id;
         this.question2Id = question2Id;
         this.answer1 = answer1;
@@ -71,12 +74,12 @@ public class User {
         this.password = password;
     }
 
-    public int getStateId() {
-        return stateId;
+    public int getStatId() {
+        return statId;
     }
 
-    public void setStateId(int stateId) {
-        this.stateId = stateId;
+    public void setStatId(int statId) {
+        this.statId = statId;
     }
 
     public int getQuestion1Id() {
