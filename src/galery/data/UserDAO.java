@@ -25,8 +25,8 @@ public class UserDAO {
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2,password);
             preparedStatement.execute();
-            //connection.close();
             ResultSet result = preparedStatement.getResultSet();
+            //dataBase.connection.close();
             if(result.next())
             {
                 return true;
@@ -55,6 +55,7 @@ public class UserDAO {
             preparedStatement.setString(2,password);
             preparedStatement.execute();
             ResultSet result = preparedStatement.getResultSet();
+            //dataBase.connection.close();
             if(result.next())
             {
                 int id = result.getInt(1);
