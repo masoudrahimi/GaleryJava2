@@ -99,10 +99,10 @@ CREATE TABLE `comment` (
   `PictureId` int(11) NOT NULL,
   `Comment` varchar(200) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `FK_Comment_User` (`UserId`),
   KEY `FK_Comment_Picture` (`PictureId`),
-  CONSTRAINT `FK_Comment_User` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Comment_Picture` FOREIGN KEY (`PictureId`) REFERENCES `picture` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK_Comment_User` (`UserId`),
+  CONSTRAINT `FK_Comment_Picture` FOREIGN KEY (`PictureId`) REFERENCES `picture` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_Comment_User` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -338,10 +338,10 @@ CREATE TABLE `rate` (
   `PictureId` int(11) NOT NULL,
   `rate` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `FK_Rate_User` (`UserId`),
   KEY `FK_Rate_Picture` (`PictureId`),
-  CONSTRAINT `FK_Rate_User` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Rate_Picture` FOREIGN KEY (`PictureId`) REFERENCES `picture` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK_Rate_User` (`UserId`),
+  CONSTRAINT `FK_Rate_Picture` FOREIGN KEY (`PictureId`) REFERENCES `picture` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_Rate_User` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -481,12 +481,16 @@ CREATE TABLE `user` (
   `UserName` varchar(50) COLLATE utf8_bin NOT NULL,
   `Password` varchar(50) COLLATE utf8_bin NOT NULL,
   `StatId` int(11) NOT NULL,
-  `QustionId` int(11) NOT NULL,
-  `Answer` varchar(200) COLLATE utf8_bin NOT NULL,
+  `Question1Id` int(11) NOT NULL,
+  `Answer1` varchar(200) COLLATE utf8_bin NOT NULL,
+  `Question2Id` int(11) NOT NULL,
+  `Answer2` varchar(200) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `FK_User_Question` (`QustionId`),
   KEY `FK_User_State` (`StatId`),
-  CONSTRAINT `FK_User_Question` FOREIGN KEY (`QustionId`) REFERENCES `question` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `FK_User_Question` (`Question1Id`),
+  KEY `FK_User_Question1` (`Question2Id`),
+  CONSTRAINT `FK_User_Question` FOREIGN KEY (`Question1Id`) REFERENCES `question` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_User_Question1` FOREIGN KEY (`Question2Id`) REFERENCES `question` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_User_State` FOREIGN KEY (`StatId`) REFERENCES `state` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -554,4 +558,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-17  1:52:22
+-- Dump completed on 2017-11-18 14:24:46
