@@ -9,7 +9,6 @@
 <html>
   <head>
     <link href="../css/style.css" rel="stylesheet" />
-
   </head>
   <body>
   <ul class="bxslider">
@@ -23,25 +22,26 @@
 
 
   <div class="dd">
-    <form method="post">
-      <label for="userName">User Name</label>
+    <form action="servletLogin.do" method="post">
+      <label for="usn">User Name</label>
       <input type="text" id="usn" name="username" placeholder="Your  username..">
 
-      <label for="password">password</label>
+      <label for="pass">password</label>
       <br/>
       <input type="password" id="pass" name="password" placeholder="Your password..">
 
-      <input type="button" value="login">
+      <input type="button" onclick="confirm()" value="login">
     </form>
 
     <p><b><a href="forget.jsp" target="_blank">forgetpasword</a></b></p>
-    <p><b><a href="register.jsp" target="_blank">Register</a></b></p>
+    <p><b><a href="register.jsp"  target="_blank">Register</a></b></p>
 
 
 
   </div>
 
   </body>
+  <script type="text/javascript" src="../js/main.js"></script>
   <script src="../js/jquery-3.1.1.min.js"></script>
   <!-- bxSlider Javascript file -->
   <script src="../js/jquery.bxslider.min.js"></script>
