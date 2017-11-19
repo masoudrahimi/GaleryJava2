@@ -10,7 +10,7 @@ public class DataBase {
 
     public static String driver="com.mysql.jdbc.Driver";
     public static String connectionURL="jdbc:mysql://localhost:3306/galery";
-    public static String userNameDb="java",passwordDb="1364";
+    public static String userNameDb="java",passwordDb="123456";
     public static Connection connection;
 
     public DataBase() throws Exception
