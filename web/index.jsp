@@ -22,6 +22,17 @@
 
 
 <div class="dd">
+    <%
+        String str;
+        try {
+            str= request.getAttribute("alertMsg").toString();
+        }
+        catch (Exception e)
+        {
+            str="";
+        }
+    %>
+    <center> <h1><label style="color:green"><%=str%></label></h1></center>
     <form action="servletLogin.do" method="post">
         <label for="usn">User Name</label>
         <input type="text" id="usn" name="username" placeholder="Your  username..">

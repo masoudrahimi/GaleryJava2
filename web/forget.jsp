@@ -8,41 +8,61 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>forgetpassword</title>
+    <title>forget password</title>
     <link href="../css/style.css" rel="stylesheet" />
-    <%--<style>--%>
-        <%--body {--%>
-            <%--background-image: url("../images/Autumn.jpg");--%>
-           <%----%>
-        <%--}--%>
-    <%--</style>--%>
-
+    <script type="text/javascript"src="/js/main.js"></script>
 </head>
 <body >
 
     <div class="d">
-<form   method="post" >
+        <%
+            String str;
+            try {
+                str= request.getAttribute("alertMsg").toString();
+            }
+            catch (Exception e)
+            {
+                str="";
+            }
+        %>
+        <center> <h1><label style="color:red"><%=str%></label></h1></center>
 
-    <label for="username">User Name</label>
-   <input type="text" name="username"placeholder="Your  username..">
+<form action="servletForget.do"   method="post" >
+
+    <label for="uname">User Name</label>
+   <input type="text" name="username" id="uname" placeholder="Your  username..">
 
 </br>
-    <label for="questions">questions</label>
-
-    <select name="questions">
-        <option value="question1">question1</option>
-        <option value="question2">question2</option>
-        <option value="question3">question3</option>
-
+    <label for="questions1">questions</label>
+    <select name="questions1" id="questions1">
+        <option value="1">What is your father's name?</option>
+        <option value="2">What is your high school name?</option>
+        <option value="3">What is the name of the university?</option>
+        <option value="4">What is your city name?</option>
     </select>
     <br><br>
-    <label for="answer">Answer</label>
-    <input type="text" name="answer"placeholder="Your  answer..">
-    <label for="password"> New password</label>
-     <input type="password" name="npass"placeholder="Your  new password..">
-    <label for="conform password"> conform password</label>
-    <input type="text" name="conformpass" placeholder="Your  conform..">
-    <input type="button" value="reset pass">
+
+    <label for="ans1">Answer</label>
+    <input type="text" name="answer1" id="ans1" placeholder="Your  answer..">
+
+    <label for="questions2">questions2</label>
+    <select name="questions2" id="questions2">
+        <option value="1">What is your father's name?</option>
+        <option value="2">What is your high school name?</option>
+        <option value="3">What is the name of the university?</option>
+        <option value="4">What is your city name?</option>
+    </select>
+
+    <label for="ans2">Answer2</label>
+    <input type="text" name="answer2" id="ans2" placeholder="Your  answer..">
+
+    <label for="npass"> New password</label>
+     <input type="password" name="npassword" id="npass" placeholder="Your  new password..">
+
+    <label for="confpass"> conform password</label>
+    <input type="text" name="conformpassword" id="confpass" placeholder="Your  conform..">
+
+    <input type="submit" onclick= "return confirmForget(event)" value="reset pass">
 </form>
 
 </div>

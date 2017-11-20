@@ -11,4 +11,20 @@
         <servlet-name>servletLogin</servlet-name>
         <url-pattern>/servletLogin.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>servletRegister</servlet-name>
+        <servlet-class>galery.controller.servletRegister</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletRegister</servlet-name>
+        <url-pattern>/servletRegister.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servletForget</servlet-name>
+        <servlet-class>galery.controller.servletForget</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletForget</servlet-name>
+        <url-pattern>/servletForget.do</url-pattern>
+    </servlet-mapping>
 </web-app>
