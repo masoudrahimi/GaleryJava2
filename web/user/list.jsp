@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="galery.data.CategoryDAO" %>
 <%--
   Created by IntelliJ IDEA.
   User: masaoud
@@ -21,6 +23,14 @@
 
     <!-- Portfolio Gallery Grid -->
     <div class="row">
+
+        <%
+            ArrayList<String> cList = CategoryDAO.getCategories();
+            for(String s:cList)
+            {
+
+            }
+        %>
         <div class="column Autumn">
             <div class="content">
                 <a href="sublist.jsp">
