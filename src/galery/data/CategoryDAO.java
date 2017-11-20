@@ -45,5 +45,22 @@ public class CategoryDAO {
             return categoryList;
     }
 
+    public static ArrayList<Category> getObjectCategories() throws Exception {
+        ArrayList<Category> categoryList= new ArrayList<Category>();
+        DataBase d = new DataBase();
+        Statement stmt = d.connection.createStatement();
+        String query;
+        query = "SELECT * FROM Category";
+        ResultSet resultSet=stmt.executeQuery(query);
+        while (resultSet.next()){
+            Category category = new Category();
+            category.setId(resultSet.getInt(1));
+            category.setCategoryTitle(resultSet.getString(2));
+            category.setAddressPicture(resultSet.getString(3));
+            categoryList.add(category);
+        }
+        return categoryList;
+    }
+
 
 }

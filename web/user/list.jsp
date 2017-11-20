@@ -1,5 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="galery.data.CategoryDAO" %>
+<%@ page import="galery.model.Category" %>
+<%@ page import="galery.model.Counter" %>
+<%@ page import="galery.Listeners.MySessionListener" %>
 <%--
   Created by IntelliJ IDEA.
   User: masaoud
@@ -16,52 +19,39 @@
 </head>
 
 <body>
+<%
+    Counter.counter++;
+%>
 <!-- MAIN (Center website) -->
 <div class="main">
 
-    <h1>Gallery</h1>
-
+    <h1 style="color: #ffffff">Gallery</h1>
+    <label><h2 style="color: #ffffff">visitor statistics:<%=Counter.counter%></h2></label>
+    <label><h2 style="color: #ffffff">visitor online statistics:<%=MySessionListener.counter_s%></h2></label>
     <!-- Portfolio Gallery Grid -->
     <div class="row">
 
         <%
-            ArrayList<String> cList = CategoryDAO.getCategories();
-            for(String s:cList)
+            if(request.getSession().getAttribute("user")== null){
+            response.sendRedirect("../index.jsp");
+            }
+            ArrayList<Category> cList = CategoryDAO.getObjectCategories();
+            for(Category category:cList)
             {
+        %>
+            <div class="column spring">
+                <div class="content">
+                    <a href="sublist.jsp?id=<%=category.getId()%>">
+                        <img src="../upload/<%=category.getAddressPicture()%>"   alt="<%=category.getCategoryTitle()%>" style="width:100%">
+                        <h4><%=category.getCategoryTitle()%></h4>
+                    </a>
+
+                </div>
+            </div>
+        <%
 
             }
         %>
-        <div class="column Autumn">
-            <div class="content">
-                <a href="sublist.jsp">
-                    <img src="../images/Autumn/Autumn13.jpg"  id="1"  alt="Autumn" style="width:100%">
-                    <h4>Autumn</h4>
-                </a>
-
-            </div>
-        </div>
-
-
-        <div class="column sport">
-            <div class="content">
-                <a href="sublist.jsp">
-                    <img src="../images/sport/Sport24.jpg"   id="2" alt="sport" style="width:100%">
-                    <h4>sport</h4>
-                </a>
-            </div>
-        </div>
-
-        <div class="column spring">
-            <div class="content">
-                <a href="sublist.jsp">
-                    <img src="../images/spring/Spring113.jpg"  id="3" alt="Spring" style="width:100%">
-                    <h4>spring</h4>
-                </a>
-            </div>
-        </div>
-
-
-
 
 </body>
 </html>

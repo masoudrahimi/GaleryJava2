@@ -24,7 +24,7 @@ public class servletLogin extends HttpServlet {
             {
                 HttpSession session = req.getSession(true);
                 User user = userDAO.getUser(req.getParameter("username"),req.getParameter("password"));
-                session.setAttribute("user",user);
+                session.setAttribute("user",user.getUserName());
                 if(user.getStatId()==1)
                     res.sendRedirect("admin/regimage.jsp");//req.getRequestDispatcher("admin/regimage.jsp").forward(req,res);
                 else if (user.getStatId()==2)
