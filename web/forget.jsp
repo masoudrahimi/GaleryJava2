@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>forget password</title>
+    <title>Forget Password</title>
     <link href="../css/style.css" rel="stylesheet" />
     <script type="text/javascript"src="/js/main.js"></script>
 </head>
@@ -56,13 +56,13 @@
     <label for="ans2">Answer2</label>
     <input type="text" name="answer2" id="ans2" placeholder="Your  answer..">
 
-    <label for="npass"> New password</label>
-     <input type="password" name="npassword" id="npass" placeholder="Your  new password..">
+    <label for="pass"> New password</label>
+     <input type="password" name="npassword" id="pass" placeholder="Your  new password..">
 
-    <label for="confpass"> conform password</label>
-    <input type="text" name="conformpassword" id="confpass" placeholder="Your  conform..">
+    <label for="cpass"> conform password</label>
+    <input type="password" name="conformpassword" id="cpass" placeholder="Your  conform..">
 
-    <input type="submit" onclick= "return confirmForget(event)" value="reset pass">
+    <input type="submit" onclick= "return confirmForget(event)" value="Reset Password">
 </form>
 
 </div>
