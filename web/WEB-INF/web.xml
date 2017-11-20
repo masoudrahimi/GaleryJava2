@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <listener>
+        <listener-class>galery.Listeners.MySessionListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>servletLogin</servlet-name>
         <servlet-class>galery.controller.servletLogin</servlet-class>
@@ -26,5 +32,13 @@
     <servlet-mapping>
         <servlet-name>servletForget</servlet-name>
         <url-pattern>/servletForget.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servletDelete</servlet-name>
+        <servlet-class>galery.controller.servletDelete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletDelete</servlet-name>
+        <url-pattern>/admin/servletDelete.do</url-pattern>
     </servlet-mapping>
 </web-app>

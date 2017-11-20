@@ -1,3 +1,6 @@
+<%@ page import="galery.model.Picture" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="galery.data.PictureDAO" %>
 <%--
   Created by IntelliJ IDEA.
   User: masaoud
@@ -23,14 +26,30 @@
 <center>
     <h1>show galary</h1>
 </center>
+<%
+    if(request.getSession().getAttribute("user")== null){
+        response.sendRedirect("../index.jsp");
+    }
+    ArrayList<Picture> pList = PictureDAO.getObjectPicture();
+    Picture p=new Picture();
+    for(Picture picture:pList)
+    {
+        if(picture.getId()!= Integer.parseInt(request.getParameter("id"))){
+            continue;
+        }
+        else{
+            p=picture;
+        }
+    }
 
+%>
 <form>
     <table border="5" bordercolor="red" align="center">
         <tr>
 
             <td>  <a href="item.jsp">
 
-                <img src="/images/Autumn/Autumn13.jpg" height=400 width=800></a></th>
+                <img src="../upload/<%=p.getAddressPicture()%>" height=400 width=800></a></th>
 
 
         </tr>
@@ -55,7 +74,7 @@
                         </form>
                     </div>
                 </div>
-
+            </td>
 
         </tr>
         <tr>

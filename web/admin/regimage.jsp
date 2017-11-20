@@ -1,3 +1,8 @@
+<%@ page import="galery.data.CategoryDAO" %>
+<%@ page import="galery.data.PictureDAO" %>
+<%@ page import="galery.data.Uploader" %>
+<%@ page import="galery.model.Picture" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: masaoud
@@ -9,10 +14,17 @@
 <html>
 <head>
     <title>registery</title>
-    <link href="/css/style2.css" rel="stylesheet" />
-    <script type="text/javascript"src="/js/main.js"></script>
-
-
+    <link href="/css/style2.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script>
+        function load() {
+            <%
+            request.setAttribute("file","file2");
+            Uploader u = new Uploader();
+            u.doPost(request,response);
+            %>
+        }
+    </script>
 </head>
 
 <body>
@@ -20,6 +32,11 @@
 <%--<a href="index.jsp">--%>
 <%--<img src="/images/exit.png">--%>
 <%--</a>--%>
+<%
+    if(request.getSession().getAttribute("user")== null){
+        response.sendRedirect("../index.jsp");
+    }
+%>
 </div>
 
 <div class="tab">
@@ -32,15 +49,15 @@
     <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
     <h3>categoty</h3>
     <label for="nameCategory"> Name Category</label>
-    <input type="text" name="name"placeholder="Your  categoryname..">
+    <input type="text" name="name" placeholder="Your  categoryname..">
     <br><br/>
     <br/>
     <br/>
-    <input type="file" id="myFile">
+    <input type="file" id="file">
     <br/>
     <br/>
     <br/>
-    <button >save category</button>
+    <input type="submit" value="AddCat">
 
 
 </div>
@@ -48,22 +65,32 @@
 <div id="add Image" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
     <h4>Add image</h4>
-    <label for="choose categoty">choose categoty</label>
+    <form action="regimage.jsp" onsubmit="load()" method="post" enctype="multipart/form-data">
+        <label for="choose categoty">choose categoty</label>
 
-    <select name="add image">
-        <option value="autumn">autumn</option>
-        <option value="sport">sport</option>
-        <option value="spring">string</option>
+        <select name="addimage">
+            <%
+                ArrayList<String> categories = CategoryDAO.getCategories();
+                for (int i = 0; i <categories.size() ; i++) {
+                    out.print("<option value=\"" + (i+1) +"\">" + categories.get(i) + "</option>");
 
-    </select>
-    <br/>
-    <br/>
-    <br/>
-    <input type="file" id="myFile">
-    <br/>
-    <br/>
-    <br/>
-    <button >add picture</button>
+                }
+            %>
+            <%--<option value="1">Spring</option>--%>
+            <%--<option value="2">Summer</option>--%>
+            <%--<option value="3">Autumn</option>--%>
+            <%--<option value="4">Winter</option>--%>
+
+        </select>
+        <br/>
+        <br/>
+        <br/>
+        <input type="file" name="file2"/>
+        <br/>
+        <br/>
+        <br/>
+        <input type="submit" value="AddPic">
+    </form>
 
 
 </div>
@@ -71,40 +98,22 @@
 <div id="Delete Image" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
     <h3>delete Image</h3>
+    <%
+        ArrayList<Picture> pList = PictureDAO.getObjectPicture();
+        for(Picture picture:pList) {
+    %>
+    <div class="column spring">
+        <div class="content">
+            <a href="servletDelete.do?id=<%=picture.getId()%>">
+                <img src="../upload/<%=picture.getAddressPicture()%>"   alt="<%=picture.getId()%>" style="width:100%">
+                <h4><%=picture.getId()%></h4>
+            </a>
 
-    <form>
-        <table>
-            <tr>
-                <th>Delete</th>
-                <th>nameCategory</th>
-                <th>namepicture</th>
-            </tr>
-
-            <tr>
-                <td> <span class="topright">x</span></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td> <span class="topright">x</span></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td> <span class="topright">x</span></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>    <span class="topright">x</span></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-        </table>
-    </form>
-
-
+        </div>
+    </div>
+    <%
+        }
+    %>
 </div>
 <%--<div class="footer">--%>
 <%--masudRahimi ,hosein..,zahrafirouzi--%>

@@ -39,13 +39,13 @@
             ArrayList<Picture> pList =PictureDAO.getObjectPicture();
             for(Picture picture:pList)
             {
-                if(picture.getId()!= Integer.parseInt(request.getParameter("id"))){
+                if(picture.getCategoryId()!= Integer.parseInt(request.getParameter("id"))){
                     continue;
                 }
         %>
         <div class="column spring">
             <div class="content">
-                <a href="sublist.jsp?id=<%=picture.getId()%>">
+                <a href="item.jsp?id=<%=picture.getId()%>">
                     <img src="../upload/<%=picture.getAddressPicture()%>"   alt="<%=picture.getId()%>" style="width:100%">
                     <h4><%=picture.getId()%></h4>
                 </a>
