@@ -41,7 +41,7 @@ function confirmForget(event)
         event.preventDefault();
     }
 }
-}
+
 //function register admin
 function openreg(evt, oprationName) {
     var i, tabcontent, tablinks;
@@ -59,7 +59,6 @@ function openreg(evt, oprationName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-
 
 //page register
 function Myclick() {
