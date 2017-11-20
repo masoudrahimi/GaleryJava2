@@ -53,7 +53,7 @@
                 <option value="2">user</option>
             </select>
             <label for="q1">question1</label>
-        <select name="questions1"id="q1">
+        <select name="questions1" id="q1">
             <option value="1">What is your father's name?</option>
             <option value="2">What is your high school name?</option>
             <option value="3">What is the name of the university?</option>
